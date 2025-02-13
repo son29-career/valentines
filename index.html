@@ -67,19 +67,22 @@
     </div>
 
     <div class="gif-container" id="gifContainer">
-        <h1>YAY! 🎉 I'm so happy you said YES! 💖</h1>
-        <img src="https://media.giphy.com/media/5GoVLqeAOo6PK/giphy.gif" alt="Dancing Happy GIF">
+        <h1>YAYYYYYYYY! Happy Valentiness Lovey  🎉 <br> Date tayo soon, mwahhh mwahhh mwahhhh mwahhhhhh YES! 💖</h1>
+        <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" alt="Happy Cat Dancing GIF">
     </div>
 
     <script>
         let noClickCount = 0;
         const messages = [
-            "Are you sure? 😢",
-            "Please reconsider... 💔",
-            "Think about how happy we'd be! 😊",
-            "Don't break my heart! 😭",
+            "lahhh no pinondot? 😢",
+            "reconsider lovey ... 💔",
+            "balakajan si tampo ako nyan, eme! 😊",
+            "lahh syaa no talaga ng no HAhHAHHA! 😭",
             "Last chance! 🥺",
-            "Come on, just say YES! 😤"
+            " YES na sana! 😤", 
+            " Ayaw ng kadate, edu waq sino ba naman aq 😢 ", 
+            "awtss huhu! 🥺", 
+            "yes ka na plsss 🥺"
         ];
 
         function handleNoClick() {
@@ -94,10 +97,12 @@
             yesButton.style.fontSize = newSize + "px";
             yesButton.style.padding = "20px 30px";
 
-            // Move "No" button randomly
+            // Move "No" button randomly within screen bounds
             let noButton = document.getElementById("no");
-            let x = Math.random() * (window.innerWidth - 100);
-            let y = Math.random() * (window.innerHeight - 50);
+            let maxX = window.innerWidth - noButton.offsetWidth - 20;
+            let maxY = window.innerHeight - noButton.offsetHeight - 20;
+            let x = Math.random() * maxX;
+            let y = Math.random() * maxY;
             noButton.style.left = `${x}px`;
             noButton.style.top = `${y}px`;
         }
