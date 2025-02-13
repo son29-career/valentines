@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: pink;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        .container {
+            text-align: center;
+            position: relative;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+            position: absolute;
+        }
+        #yes {
+            background-color: red;
+            color: white;
+            font-size: 18px;
+        }
+        #no {
+            background-color: gray;
+            color: white;
+        }
+        #message {
+            font-size: 20px;
+            margin-top: 80px;
+            color: red;
+            font-weight: bold;
+        }
+        .gif-container {
+            display: none;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .gif-container img {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="mainContainer">
+        <h1>Will You Be My Valentine? ❤️</h1>
+        <button id="yes" onclick="showGif()" style="position: relative;">Yes</button>
+        <button id="no" onclick="handleNoClick()">No</button>
+        <p id="message"></p>
+    </div>
+
+    <div class="gif-container" id="gifContainer">
+        <h1>YAY! 🎉 I'm so happy you said YES! 💖</h1>
+        <img src="https://media.giphy.com/media/5GoVLqeAOo6PK/giphy.gif" alt="Dancing Happy GIF">
+    </div>
+
+    <script>
+        let noClickCount = 0;
+        const messages = [
+            "Are you sure? 😢",
+            "Please reconsider... 💔",
+            "Think about how happy we'd be! 😊",
+            "Don't break my heart! 😭",
+            "Last chance! 🥺",
+            "Come on, just say YES! 😤"
+        ];
+
+        function handleNoClick() {
+            if (noClickCount < messages.length) {
+                document.getElementById("message").innerText = messages[noClickCount];
+                noClickCount++;
+            }
+
+            // Increase "Yes" button size
+            let yesButton = document.getElementById("yes");
+            let newSize = parseInt(window.getComputedStyle(yesButton).fontSize) + 5;
+            yesButton.style.fontSize = newSize + "px";
+            yesButton.style.padding = "20px 30px";
+
+            // Move "No" button randomly
+            let noButton = document.getElementById("no");
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        }
+
+        function showGif() {
+            document.getElementById("mainContainer").style.display = "none";
+            document.getElementById("gifContainer").style.display = "flex";
+        }
+    </script>
+</body>
+</html>
