@@ -99,19 +99,13 @@
 
             // Move "No" button randomly within screen bounds
             let noButton = document.getElementById("no");
+                let randomOpacity = Math.random() * 0.5 + 0.2; // Random opacity between 0.2 and 0.7
+                noButton.style.opacity = randomOpacity;
 
-            // Get the maximum position where the button can be placed without going off screen
-            let maxX = document.documentElement.clientWidth - noButton.offsetWidth - 20; // More accurate for mobile
-            let maxY = document.documentElement.clientHeight - noButton.offsetHeight - 20;
-
-            // Ensure the position is within bounds, using Math.min() to avoid going out of screen
-            let x = Math.random() * maxX;
-            let y = Math.random() * maxY;
-
-            // Ensure the button stays within the visible area (no negative left/top values)
-            noButton.style.position = "absolute";  // Ensure it's positioned absolutely
-            noButton.style.left = `${Math.max(0, Math.min(x, maxX))}px`;  // Prevent button from going off the left
-            noButton.style.top = `${Math.max(0, Math.min(y, maxY))}px`; 
+        // Optionally, you can add a timeout to restore visibility after a delay
+                setTimeout(() => {
+                    noButton.style.opacity = 1; // Make it fully visible again
+                }, 15); // 500 ms delay before fully restoring visibility
         }
 
         function showGif() {
